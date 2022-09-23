@@ -19,19 +19,34 @@ for(Bitcoin, N, Term, NumberOfZeroes) when N > 0 ->
     ZeroSubs -> io:fwrite("~p     ~s~n", [BitcoinKey, SHA_String]);
     _Else -> false
   end,
-  for(Bitcoin, N - 1, Term, NumberOfZeroes).
+  for(Bitcoin, N + 1, Term, NumberOfZeroes).
 
-
-actor_call() ->
+actor_call(RangeL, RangeR) ->
   receive
-    {zeroes, NumberOfZeroes} ->
+    {From, {zeroes, NumberOfZeroes}} ->
       Bitcoin = "pkamble:",
-      for(Bitcoin, 5000000, 1,NumberOfZeroes),
-      actor_call()
+      From ! {self(), for(Bitcoin, RangeL, RangeR,NumberOfZeroes)},
+      actor_call(RangeL, RangeR)
+  end.
+
+convert(Pid, Request) ->
+  Pid ! {self(), Request},
+  receive
+    {Pid, Response} -> Response
   end.
 
 start_server() ->
   {ok, [NumberOfZeroes]} = io:fread("input : ", "~d"),
   io:format("Number of Zeroes: ~p ~n", [NumberOfZeroes]),
-  Pid = spawn(fun actor_call/0),
-  Pid ! {zeroes, NumberOfZeroes}.
+  convert(spawn(fun() -> actor_call(1, 100000) end), {zeroes, NumberOfZeroes}),
+  convert(spawn(fun() -> actor_call(100000, 200000) end), {zeroes, NumberOfZeroes}),
+  convert(spawn(fun() -> actor_call(200000, 300000) end), {zeroes, NumberOfZeroes}),
+  convert(spawn(fun() -> actor_call(400000, 500000) end), {zeroes, NumberOfZeroes}),
+  convert(spawn(fun() -> actor_call(500000, 600000) end), {zeroes, NumberOfZeroes}).
+
+
+
+
+
+
+

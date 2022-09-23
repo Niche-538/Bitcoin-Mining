@@ -1,20 +1,20 @@
-
 -module(temperature).
 
-%% API
 -compile(export_all).
+
+convert(Pid, Request) ->
+  Pid ! {self(), Request},
+  receive
+    {Pid, Response} -> Response
+  end.
 
 temperatureConverter() ->
   receive
-    {toF, C} ->
-      io:format("~p C is ~p F~n", [C, 32+C*9/5]),
-      temperatureConverter();
-    {toC, F} ->
-      io:format("~p F is ~p C~n", [F, (F-32)*5/9]),
-      temperatureConverter();
-    {stop} ->
-      io:format("Stopping~n");
-    Other ->
-      io:format("Unknown: ~p~n", [Other]),
+    {From, {toF, C}} ->
+      From ! {self(), 32+C*9/5},
       temperatureConverter()
   end.
+
+start() ->
+  spawn(fun() -> temperatureConverter() end).
+
