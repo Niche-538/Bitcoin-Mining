@@ -1,3 +1,6 @@
+% Server mine coins and when client is available asks client to mine too. Distribute work to clients who ask for work
+% All coins are displayed on server
+
 -module(server).
 -import(string, [substr/3, equal/2]).
 -compile(export_all).
@@ -10,7 +13,7 @@ for(Bitcoin, N, Term, NumberOfZeroes) when N > 0 ->
   SHA_String = io_lib:format("~64.16.0b", [SHA]),
   Subs = substr(SHA_String, 1, NumberOfZeroes),
 
-  ZeroString = "0000000000000000000000000000000000000000000000",
+  ZeroString = "00000000000000000000000000000000000000000000000000000000000",
   ZeroSubs = substr(ZeroString, 1, NumberOfZeroes),
   case Subs of
     ZeroSubs -> io:fwrite("~p     ~s~n", [BitcoinKey, SHA_String]);
@@ -19,8 +22,16 @@ for(Bitcoin, N, Term, NumberOfZeroes) when N > 0 ->
   for(Bitcoin, N - 1, Term, NumberOfZeroes).
 
 
+actor_call() ->
+  receive
+    {zeroes, NumberOfZeroes} ->
+      Bitcoin = "pkamble:",
+      for(Bitcoin, 5000000, 1,NumberOfZeroes),
+      actor_call()
+  end.
+
 start_server() ->
   {ok, [NumberOfZeroes]} = io:fread("input : ", "~d"),
   io:format("Number of Zeroes: ~p ~n", [NumberOfZeroes]),
-  Bitcoin = "pkamble:",
-  for(Bitcoin, 5000000, 1,NumberOfZeroes).
+  Pid = spawn(fun actor_call/0),
+  Pid ! {zeroes, NumberOfZeroes}.
