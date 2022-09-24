@@ -141,6 +141,9 @@
   * CPU time [Multicore Actor Model]= ~1ms = 1ms
   * Real time [Single-Core Serialized Model] = 4ms
   * Absolute Ratio = CPU Time / Real Time = 1/4 = 0.25
+  
+  <img width="1218" alt="Screenshot 2022-09-24 at 19 50 55" src="https://user-images.githubusercontent.com/54627841/192122628-df0a982c-693c-436f-95cb-fb7b11c9861e.png">
+
 
 * The coin with the most 0s you managed to find is 7.
 ![image](https://user-images.githubusercontent.com/41022671/192121563-6fb48de5-e805-44f9-9a5a-fb898834870d.png)
