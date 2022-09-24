@@ -131,10 +131,11 @@
   * We ran the hash miner for 5 leading zeroes and recorded the time for serialized and actor model implementation.
   Please refer to the following screenshots:
    * Time for Serial Implementation
-  <img width="705" alt="mining" src="https://user-images.githubusercontent.com/54627841/192120913-835ab586-478a-455a-86ae-d5a3017edc8a.png">
-  
+   <img width="712" alt="Screenshot 2022-09-24 at 18 42 11" src="https://user-images.githubusercontent.com/54627841/192121254-38633282-576a-4eff-847b-e5470f462b3b.png">
+
   * Time for Actor Model Implentation
-  <img width="958" alt="actor" src="https://user-images.githubusercontent.com/54627841/192120926-ab911f8f-6159-4969-8b58-c72e88cd897c.png">
+  <img width="981" alt="Screenshot 2022-09-24 at 18 49 35" src="https://user-images.githubusercontent.com/54627841/192121259-ea1afc4c-ccfc-4f5f-b3b9-e17cba052f23.png">
+
   
   * CPU time = 812ms
   * Absolute time  = 485ms
