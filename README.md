@@ -134,7 +134,7 @@
    <img width="712" alt="Screenshot 2022-09-24 at 18 42 11" src="https://user-images.githubusercontent.com/54627841/192121254-38633282-576a-4eff-847b-e5470f462b3b.png">
    
 
-  * Time for Actor Model Implentation: 1ms
+  * Time for Actor Model Implentation for 350 actors working asynchronously: ~1ms
   <img width="981" alt="Screenshot 2022-09-24 at 18 49 35" src="https://user-images.githubusercontent.com/54627841/192121259-ea1afc4c-ccfc-4f5f-b3b9-e17cba052f23.png">
   
 * The ratio of CPU time to REAL TIME tells you how many cores were effectively used in the computation. 
@@ -143,5 +143,6 @@
   * Absolute Ratio = 1/4 = 0.25
 
 * The coin with the most 0s you managed to find is 7.
+![image](https://user-images.githubusercontent.com/41022671/192121563-6fb48de5-e805-44f9-9a5a-fb898834870d.png)
 
 * We were able to run the program on 2 machines. One is a server and other is a client.
