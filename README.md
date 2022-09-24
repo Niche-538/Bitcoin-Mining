@@ -34,7 +34,7 @@
       4. mining:start().
       5. Enter the number of zeroes desired.
       6. 4
-      7. To stop the program, press <pre>Ctrl + C</pre>
+      7. To stop the program, press **Ctrl + C**.
       
       Refer the ScreenShot below: 
       <img width="793" alt="Screenshot 2022-09-24 at 17 29 24" src="https://user-images.githubusercontent.com/54627841/192119396-74ad55fc-1eaa-457b-9698-55b2e734a7cc.png">
@@ -52,7 +52,7 @@
       5. server:main().
       6. Enter the number of zeroes desired.
       7. 4 
-      8. To stop the program, press <pre>Ctrl + C</pre>
+      8. To stop the program, press **Ctrl + C**.
 
       Refer the ScreenShot below: 
       <img width="794" alt="Screenshot 2022-09-24 at 17 34 33" src="https://user-images.githubusercontent.com/54627841/192119518-aa363248-0672-49f0-9e41-99ba5cf45a74.png">
@@ -68,7 +68,7 @@
       4. c(client).
       5. Enter the number of zeroes as a parameter to the main function
       6. server:main(4).
-      7. To stop the program, press <pre>Ctrl + C</pre>
+      7. To stop the program, press **Ctrl + C**.
 
       Refer the ScreenShot below: 
       <img width="790" alt="Screenshot 2022-09-24 at 17 36 53" src="https://user-images.githubusercontent.com/54627841/192119589-3eaafbc6-73ac-48a9-ac95-6ab34fe46294.png">

@@ -1,11 +1,12 @@
 -module(server).
 -import(math, [pow/2]).
+-import(raand, [uniform/1]).
 -import(client, [beginWork/2]).
 -export([main/1]).
 
 main(Noz) ->
     % Number of actors, to be selected at random
-    RandN = 5,
+    RandN = uniform(1000),
     MasterID = spawn(fun() -> endlessLoop(RandN) end),
     generateActors(MasterID, Noz, RandN).
 
