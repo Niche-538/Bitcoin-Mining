@@ -18,10 +18,46 @@
 * Output: Print, on independent entry lines, the input string, and the correspondingSHA256 hash separated by a TAB, for each of the bitcoins you find. Obviously, your SHA256 hash must have the required number of leading 0s.  An extra requirement, to ensure every group finds different coins, is to have the input string prefixed by the gator link ID of one of the team members.
 
 ### Steps to run the code
-* Download erlang
-* 
+* Clone this repository and install erlang.
+* This project has 3 implementations :
+  * Serialized Computation
+  * Distributed Implementation
+  * Client-Server-Actor-Model
+  
+1. **Serialized Computation**: 
+   1. This implementation performs the bitcoin mining serially without any parallelism. 
+   2. This directory has only one file **mining.erl**
+   3. To run this code use the following commands:
+      1. cd Serialized Computation
+      2. erl
+      3. c(mining).
+      4. mining:start().
+      5. Enter the number of zeroes desired.
+      6. 4
+     
+2. **Distributed Implementation**: 
+   1. This implementation performs bitcoin mining by creating actors and distributing range of strings to get the corresponding SHA. 
+   2. This directory has 2 files **client.erl** and **server.erl**
+   3. To run this code use the following commands:
+      1. cd Distributed Implementation
+      2. erl
+      3. c(server).
+      4. c(client).
+      5. server:main().
+      6. Enter the number of zeroes desired.
+      7. 4
+3. Actor Model Client Server Implementation
+   1. This implementation
+   2. This directory has 2 files **client.erl** and **server.erl**
+   3. To run this code use the following commands:
+   4. cd Client-Server-Actor-Model
+   5. erl
+   6. c(server).
+   7. c(client).
+   8. Enter the number of zeroes as a parameter to the main function
+   9. server:main(4).
 
-### Conclusions
+### Conclusions and Results
 
 * Size of the work unit that you determined results in the best performance for your implementation and an explanation of how you determined it. The size of the work unit refers to the number of sub-problems that a worker gets in a single request from the boss.
 * The result of running your program for input 4
