@@ -6,7 +6,7 @@
 
 main(Noz) ->
     % Number of actors, to be selected at random
-    RandN = uniform(1000),
+    RandN = uniform(10000),
     MasterID = spawn(fun() -> endlessLoop(RandN) end),
     generateActors(MasterID, Noz, RandN).
 
