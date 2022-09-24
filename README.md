@@ -70,6 +70,10 @@
       6. server:main(4).
       7. To stop the program, press <pre>Ctrl + C</pre>
 
+      Refer the ScreenShot below: 
+      <img width="790" alt="Screenshot 2022-09-24 at 17 36 53" src="https://user-images.githubusercontent.com/54627841/192119589-3eaafbc6-73ac-48a9-ac95-6ab34fe46294.png">
+
+  
 ### Conclusions and Results
 
 * Size of the work unit that you determined results in the best performance for your implementation and an explanation of how you determined it. The size of the work unit refers to the number of sub-problems that a worker gets in a single request from the boss.
