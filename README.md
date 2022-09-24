@@ -128,9 +128,16 @@
     Actor ID: <0.96.0> Output: "a.patil:4546256"  "0000d5a90a4743ad61cf402f6fdbc960e4039cc222f1c21be6f003ff050acc6b"</pre>
 
 * The running time for the above is reported by time for the above and report the time. 
-  * We ran the hash miner for 4 leading zeroes 
-    * CPU time = 812ms
-    * Absolute time  = 485ms
+  * We ran the hash miner for 5 leading zeroes and recorded the time for serialized and actor model implementation.
+  Please refer to the following screenshots:
+   * Time for Serial Implementation
+  <img width="705" alt="mining" src="https://user-images.githubusercontent.com/54627841/192120913-835ab586-478a-455a-86ae-d5a3017edc8a.png">
+  
+  * Time for Actor Model Implentation
+  <img width="958" alt="actor" src="https://user-images.githubusercontent.com/54627841/192120926-ab911f8f-6159-4969-8b58-c72e88cd897c.png">
+  
+  * CPU time = 812ms
+  * Absolute time  = 485ms
   
 * The ratio of CPU time to REAL TIME tells you how many cores were effectively used in the computation. 
   * Absolute Ratio = 1.67
