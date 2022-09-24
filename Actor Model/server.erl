@@ -5,7 +5,6 @@
 -import(string, [substr/3, equal/2]).
 -export([main/0]).
 
-
 mineCoin(Bitcoin, N, Term, NumberOfZeroes, ServerPID) ->
   case N < Term  of
     true->
@@ -28,7 +27,7 @@ findHash(N,ServerPID,NumberOfZeroes)->
 
   case Subs of
     ZeroSubs ->
-      ServerPID ! {response, SHA_String, printpls};
+      ServerPID ! {response, BitcoinKey ,SHA_String};
     _Else -> false
   end.
 
@@ -37,31 +36,26 @@ actor_call(RangeL, RangeR, ServerPID, NumberOfZeroes) ->
       mineCoin(Bitcoin, RangeL, RangeR, NumberOfZeroes, ServerPID),
       actor_call(RangeL, RangeR, ServerPID,NumberOfZeroes).
 
-
 convert(Pid, Request) ->
-  io:fwrite("Server ID Piddddddd: ~p~n", [Pid]),
   Pid ! {Pid, Request},
   receive
-    {response, Response, printpls} ->
-      io:fwrite("Response: SHA-String: ~p~n", [Response])
+    {} -> {}
   end,
   convert(Pid, Request).
 
 server() ->
-  io:fwrite("Server ID: ~p~n", [self()]),
   receive
+    {response, BitcoinKey, Response} ->
+      io:fwrite("Server wala Response Key: ~p     SHA-String: ~p~n", [BitcoinKey, Response]);
     {SID, {zero, NumberOfZeroes}} ->
-      io:fwrite("Server ID attlaaaa: ~p self walaaa:~p~n", [SID, self()]),
       spawn(fun() -> actor_call(100000, 200000, SID, NumberOfZeroes) end),
-      spawn(fun() -> actor_call(200000, 300000, SID, NumberOfZeroes) end)
+      spawn(fun() -> actor_call(400000, 500000, SID, NumberOfZeroes) end)
   end,
   server().
 
 main() ->
   {ok, [NumberOfZeroes]} = io:fread("input : ", "~d"),
-  io:format("Number of Zeroes: ~p ~n", [NumberOfZeroes]),
   SID = spawn(fun() -> server() end),
-  io:fwrite("Server ID main walaaaaaaaaa: ~p~n", [SID]),
   convert(SID, {zero, NumberOfZeroes}).
 
 
