@@ -3,50 +3,65 @@
 
 -module(server).
 -import(string, [substr/3, equal/2]).
--compile(export_all).
+-export([main/0]).
 
-for(_, 0, _, _) ->
-  "";
-for(Bitcoin, N, Term, NumberOfZeroes) when N > 0 ->
+
+mineCoin(Bitcoin, N, Term, NumberOfZeroes, ServerPID) ->
+  case N < Term  of
+    true->
+      findHash(N,ServerPID,NumberOfZeroes),
+      mineCoin(Bitcoin, N + 1, Term, NumberOfZeroes,ServerPID);
+    false -> done
+  end.
+
+findHash(N,ServerPID,NumberOfZeroes)->
+  Bitcoin = "pkamble",
   BitcoinKey = Bitcoin ++ integer_to_list(N),
+
   SHA = binary:decode_unsigned(crypto:hash(sha256, BitcoinKey)),
   SHA_String = io_lib:format("~64.16.0b", [SHA]),
+
   Subs = substr(SHA_String, 1, NumberOfZeroes),
 
   ZeroString = "00000000000000000000000000000000000000000000000000000000000",
   ZeroSubs = substr(ZeroString, 1, NumberOfZeroes),
-  case Subs of
-    ZeroSubs -> io:fwrite("~p     ~s~n", [BitcoinKey, SHA_String]);
-    _Else -> false
-  end,
-  for(Bitcoin, N + 1, Term, NumberOfZeroes).
 
-actor_call(RangeL, RangeR) ->
-  receive
-    {From, {zeroes, NumberOfZeroes}} ->
-      Bitcoin = "pkamble:",
-      From ! {self(), for(Bitcoin, RangeL, RangeR,NumberOfZeroes)},
-      actor_call(RangeL, RangeR)
+  case Subs of
+    ZeroSubs ->
+      ServerPID ! {response, SHA_String, printpls};
+    _Else -> false
   end.
+
+actor_call(RangeL, RangeR, ServerPID, NumberOfZeroes) ->
+      Bitcoin = "pkamble:",
+      mineCoin(Bitcoin, RangeL, RangeR, NumberOfZeroes, ServerPID),
+      actor_call(RangeL, RangeR, ServerPID,NumberOfZeroes).
+
 
 convert(Pid, Request) ->
-  Pid ! {self(), Request},
+  io:fwrite("Server ID Piddddddd: ~p~n", [Pid]),
+  Pid ! {Pid, Request},
   receive
-    {Pid, Response} -> Response
-  end.
+    {response, Response, printpls} ->
+      io:fwrite("Response: SHA-String: ~p~n", [Response])
+  end,
+  convert(Pid, Request).
 
-start_server() ->
+server() ->
+  io:fwrite("Server ID: ~p~n", [self()]),
+  receive
+    {SID, {zero, NumberOfZeroes}} ->
+      io:fwrite("Server ID attlaaaa: ~p self walaaa:~p~n", [SID, self()]),
+      spawn(fun() -> actor_call(100000, 200000, SID, NumberOfZeroes) end),
+      spawn(fun() -> actor_call(200000, 300000, SID, NumberOfZeroes) end)
+  end,
+  server().
+
+main() ->
   {ok, [NumberOfZeroes]} = io:fread("input : ", "~d"),
   io:format("Number of Zeroes: ~p ~n", [NumberOfZeroes]),
-  convert(spawn(fun() -> actor_call(1, 100000) end), {zeroes, NumberOfZeroes}),
-  convert(spawn(fun() -> actor_call(100000, 200000) end), {zeroes, NumberOfZeroes}),
-  convert(spawn(fun() -> actor_call(200000, 300000) end), {zeroes, NumberOfZeroes}),
-  convert(spawn(fun() -> actor_call(400000, 500000) end), {zeroes, NumberOfZeroes}),
-  convert(spawn(fun() -> actor_call(500000, 600000) end), {zeroes, NumberOfZeroes}).
-
-
-
-
-
+  SID = spawn(fun() -> server() end),
+  io:fwrite("Server ID main walaaaaaaaaa: ~p~n", [SID]),
+  convert(SID, {zero, NumberOfZeroes}).
 
 
