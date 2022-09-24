@@ -53,6 +53,11 @@
       6. Enter the number of zeroes desired.
       7. 4 
       8. To stop the program, press <pre>Ctrl + C</pre>
+
+      Refer the ScreenShot below: 
+      <img width="794" alt="Screenshot 2022-09-24 at 17 34 33" src="https://user-images.githubusercontent.com/54627841/192119518-aa363248-0672-49f0-9e41-99ba5cf45a74.png">
+
+
 3. Actor Model Client Server Implementation
    1. This implementation ..... @Anurag
    2. This directory has 2 files **client.erl** and **server.erl**
