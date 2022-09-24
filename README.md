@@ -34,6 +34,7 @@
       4. mining:start().
       5. Enter the number of zeroes desired.
       6. 4
+      7. To stop the program, press <pre>Ctrl + C</pre>
      
 2. **Distributed Implementation**: 
    1. This implementation performs bitcoin mining by creating actors and distributing range of strings to get the corresponding SHA. 
@@ -45,9 +46,10 @@
       4. c(client).
       5. server:main().
       6. Enter the number of zeroes desired.
-      7. 4
+      7. 4 
+      8. To stop the program, press <pre>Ctrl + C</pre>
 3. Actor Model Client Server Implementation
-   1. This implementation
+   1. This implementation ..... @Anurag
    2. This directory has 2 files **client.erl** and **server.erl**
    3. To run this code use the following commands:
       1. cd Client-Server-Actor-Model
@@ -56,13 +58,14 @@
       4. c(client).
       5. Enter the number of zeroes as a parameter to the main function
       6. server:main(4).
+      7. To stop the program, press <pre>Ctrl + C</pre>
 
 ### Conclusions and Results
 
 * Size of the work unit that you determined results in the best performance for your implementation and an explanation of how you determined it. The size of the work unit refers to the number of sub-problems that a worker gets in a single request from the boss.
 
 * The result of running your program for input 4
-  * `3> server:main(4).
+  <pre>3> server:main(4).
     ok
     Actor ID: <0.95.0> Output: "a.patil:2007383"  "0000a12895ccd9feefb8639c5b4e834380395f907c9f3d12927ee4c538b02f54"
     Actor ID: <0.98.0> Output: "a.patil:8011357"  "000004e29805e12006c1f82c290101ad17ff37347aa2b700efc08191d194a9da"
@@ -106,7 +109,7 @@
     Actor ID: <0.95.0> Output: "a.patil:2512867"  "0000fee2dc588d14a7d9f7143a3a01892f977958af70696c4a03ca5c0dd028ac"
     Actor ID: <0.97.0> Output: "a.patil:6503056"  "0000c9d6d84576df7b0d13218d10670431df27e4e66f41948ea97a541d3c9c9c"
     Actor ID: <0.94.0> Output: "a.patil:503689"  "0000ea14f22d85e4a9e5039c41d8622ef17a168d2f3032bf1ea6ff5f77142fe4"
-    Actor ID: <0.96.0> Output: "a.patil:4546256"  "0000d5a90a4743ad61cf402f6fdbc960e4039cc222f1c21be6f003ff050acc6b"`
+    Actor ID: <0.96.0> Output: "a.patil:4546256"  "0000d5a90a4743ad61cf402f6fdbc960e4039cc222f1c21be6f003ff050acc6b"</pre>
 
 * The running time for the above is reported by time for the above and report the time. 
   * We ran the hash miner for 4 leading zeroes 
