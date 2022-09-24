@@ -5,8 +5,10 @@
 -export([main/1]).
 
 main(Noz) ->
+    T = erlang:timestamp(),
+    io:format("Start Time: ~p~n", [T]),
     % Number of actors, to be selected at random
-    RandN = uniform(1000),
+    RandN = uniform(10000),
     MasterID = spawn(fun() -> endlessLoop(RandN) end),
     generateActors(MasterID, Noz, RandN).
 
@@ -18,6 +20,8 @@ endlessLoop(Rn) ->
             endlessLoop(End + 1000000000);
         {AID, {BTC, SHA_String}} ->
             io:format("Actor ID: ~p Output: ~p  ~p~n", [AID, BTC, SHA_String]),
+            T = erlang:timestamp(),
+            io:format("Find Time: ~p~n", [T]),
             endlessLoop(Rn)
     end.
 

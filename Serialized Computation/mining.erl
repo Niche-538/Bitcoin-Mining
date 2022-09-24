@@ -13,13 +13,18 @@ for(Bitcoin, N, Term, NumberOfZeroes) when N > 0 ->
     ZeroString = "0000000000000000000000000000000000000000000000",
     ZeroSubs = substr(ZeroString, 1, NumberOfZeroes),
     case Subs of
-        ZeroSubs -> io:fwrite("~p     ~s~n", [BitcoinKey, SHA_String]);
+        ZeroSubs ->
+            io:fwrite("~p     ~s~n", [BitcoinKey, SHA_String]),
+            T = erlang:timestamp(),
+            io:format("Find Time: ~p~n", [T]);
         _Else -> false
     end,
     for(Bitcoin, N - 1, Term, NumberOfZeroes).
 
 
 start() ->
+    T = erlang:timestamp(),
+    io:format("Start Time: ~p~n", [T]),
     {ok, [NumberOfZeroes]} = io:fread("input : ", "~d"),
     io:format("Number of Zeroes: ~p ~n", [NumberOfZeroes]),
     Bitcoin = "pkamble:",
