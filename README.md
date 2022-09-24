@@ -142,6 +142,7 @@
   * Real time [Single-Core Serialized Model] = 4ms
   * Absolute Ratio = CPU Time / Real Time = 1/4 = 0.25
   
+  * The Activity Monitor below that 7 Threads were used during the Actor Model Implementation: 
   <img width="1218" alt="Screenshot 2022-09-24 at 19 50 55" src="https://user-images.githubusercontent.com/54627841/192122628-df0a982c-693c-436f-95cb-fb7b11c9861e.png">
 
 
