@@ -5,13 +5,16 @@
 -export([main/1]).
 
 main(Noz) ->
+    % Timestamps to check the project runtime.
     T = erlang:timestamp(),
     io:format("Start Time: ~p~n", [T]),
+
     % Number of actors, to be selected at random
     RandN = uniform(10000),
     MasterID = spawn(fun() -> endlessLoop(RandN) end),
     generateActors(MasterID, Noz, RandN).
 
+% This loop executes endlessly and assigns a range of numbers to an available actor.
 endlessLoop(Rn) ->
     receive
         {AID, {range}} ->
@@ -25,6 +28,7 @@ endlessLoop(Rn) ->
             endlessLoop(Rn)
     end.
 
+% This function spawns actors recursively.
 generateActors(MID, Zs, Rn) ->
     spawn(fun() -> beginWork(MID, Zs) end),
     case Rn > 0 of
