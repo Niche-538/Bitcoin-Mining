@@ -130,18 +130,17 @@
 * The running time for the above is reported by time for the above and report the time. 
   * We ran the hash miner for 5 leading zeroes and recorded the time for serialized and actor model implementation.
   Please refer to the following screenshots:
-   * Time for Serial Implementation
+   * Time for Serial Implementation : 4ms
    <img width="712" alt="Screenshot 2022-09-24 at 18 42 11" src="https://user-images.githubusercontent.com/54627841/192121254-38633282-576a-4eff-847b-e5470f462b3b.png">
+   
 
-  * Time for Actor Model Implentation
+  * Time for Actor Model Implentation: 1ms
   <img width="981" alt="Screenshot 2022-09-24 at 18 49 35" src="https://user-images.githubusercontent.com/54627841/192121259-ea1afc4c-ccfc-4f5f-b3b9-e17cba052f23.png">
-
-  
-  * CPU time = 812ms
-  * Absolute time  = 485ms
   
 * The ratio of CPU time to REAL TIME tells you how many cores were effectively used in the computation. 
-  * Absolute Ratio = 1.67
+  * CPU time = 1ms
+  * Real time  = 4ms
+  * Absolute Ratio = 1/4 = 0.25
 
 * The coin with the most 0s you managed to find is 7.
 
