@@ -14,11 +14,11 @@ main(Noz) ->
 endlessLoop(Rn) ->
     receive
         {AID, {range}} ->
-            End = Rn + round(pow(10, 6)),
+            End = Rn + 1000000000,
             AID ! {self(), {Rn, End}},
-            endlessLoop(End + round(pow(10, 6)));
+            endlessLoop(End + 1000000000);
         {AID, {BTC, SHA_String}} ->
-            io:fwrite("Actor ID: ~p Output: ~p  ~p~n", [AID, BTC, SHA_String]),
+            io:format("Actor ID: ~p Output: ~p  ~p~n", [AID, BTC, SHA_String]),
             endlessLoop(Rn)
     end.
 
@@ -28,5 +28,5 @@ generateActors(MID, Zs, Rn) ->
         true ->
             generateActors(MID, Zs, Rn - 1);
         false ->
-            ok
+            done
     end.
