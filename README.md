@@ -60,6 +60,7 @@
 ### Conclusions and Results
 
 * Size of the work unit that you determined results in the best performance for your implementation and an explanation of how you determined it. The size of the work unit refers to the number of sub-problems that a worker gets in a single request from the boss.
+
 * The result of running your program for input 4
   * `3> server:main(4).
     ok
@@ -107,7 +108,14 @@
     Actor ID: <0.94.0> Output: "a.patil:503689"  "0000ea14f22d85e4a9e5039c41d8622ef17a168d2f3032bf1ea6ff5f77142fe4"
     Actor ID: <0.96.0> Output: "a.patil:4546256"  "0000d5a90a4743ad61cf402f6fdbc960e4039cc222f1c21be6f003ff050acc6b"`
 
-* The running time for the above is reported by time for the above and report the time.  
-* The ratio of CPU time to REAL TIME tells you how many cores were effectively used in the computation.  If you are close to 1 you have almost no parallelism (points will be subtracted).
-* The coin with the most 0s you managed to find.
-* The largest number of working machines you were able to run your code with.
+* The running time for the above is reported by time for the above and report the time. 
+  * We ran the hash miner for 4 leading zeroes 
+    * CPU time = 812ms
+    * Absolute time  = 485ms
+  
+* The ratio of CPU time to REAL TIME tells you how many cores were effectively used in the computation. 
+  * Absolute Ratio = 1.67
+
+* The coin with the most 0s you managed to find is 7.
+
+* We were able to run the program on 2 machines. One is a server and other is a client.
