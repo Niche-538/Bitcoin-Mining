@@ -41,8 +41,8 @@
 
       
      
-2. **Distributed Implementation**: 
-   1. This implementation performs bitcoin mining by creating actors and distributing range of strings to get the corresponding SHA. 
+2. **Distributed Implementation** [static number of actors]: 
+   1. This implementation performs bitcoin mining by mentioning a static number of actors and distributing range of strings to get the corresponding SHA.
    2. This directory has 2 files **client.erl** and **server.erl**
    3. To run this code use the following commands:
       1. cd Distributed Implementation
@@ -58,10 +58,12 @@
       <img width="794" alt="Screenshot 2022-09-24 at 17 34 33" src="https://user-images.githubusercontent.com/54627841/192119518-aa363248-0672-49f0-9e41-99ba5cf45a74.png">
 
 
-3. Actor Model Client Server Implementation
-   1. This implementation ..... @Anurag
-   2. This directory has 2 files **client.erl** and **server.erl**
-   3. To run this code use the following commands:
+3. **Actor Model Client Server Implementation** [Dynamic number of actors]:
+   This implementation generates a dynamic number of actors chosen from a Gaussian distribution of a **10,000** numbers. The program starts with the executor of the program submitting the required number of zeros to be present in the address of the mined coin. Later, the selected number of actors are spawned by the server. These actors request a uniform distribution of numbers from the server to append to the GatorID string. This string is hashed using the SHA-256 algorithm and checked for the required amount of leading zeroes. If an actor finds a hash (address) that meets the requirement, it sends the address of the Bitcoin block to the server and continues its execution. This process of message transfer between the server and the corresponding actors is **completely asynchronous**. If an actor runs out of the numbers assigned to it by the server, then the same actor requests the server for a different range of numbers. Thus, this program **DOES NOT** terminate on its own. It needs to be stopped forcefully using a keyboard interrupt.<br><br>
+
+   The required steps to execute the program are mentioned below.
+   1. Change the directory to 'Client-Server-Actor-Model'. This directory has 2 files **client.erl** and **server.erl**
+   2. To run this code use the following commands:
       1. cd Client-Server-Actor-Model
       2. erl
       3. c(server).
@@ -126,9 +128,17 @@
     Actor ID: <0.96.0> Output: "a.patil:4546256"  "0000d5a90a4743ad61cf402f6fdbc960e4039cc222f1c21be6f003ff050acc6b"</pre>
 
 * The running time for the above is reported by time for the above and report the time. 
-  * We ran the hash miner for 4 leading zeroes 
-    * CPU time = 812ms
-    * Absolute time  = 485ms
+  * We ran the hash miner for 5 leading zeroes and recorded the time for serialized and actor model implementation.
+  Please refer to the following screenshots:
+   * Time for Serial Implementation
+   <img width="712" alt="Screenshot 2022-09-24 at 18 42 11" src="https://user-images.githubusercontent.com/54627841/192121254-38633282-576a-4eff-847b-e5470f462b3b.png">
+
+  * Time for Actor Model Implentation
+  <img width="981" alt="Screenshot 2022-09-24 at 18 49 35" src="https://user-images.githubusercontent.com/54627841/192121259-ea1afc4c-ccfc-4f5f-b3b9-e17cba052f23.png">
+
+  
+  * CPU time = 812ms
+  * Absolute time  = 485ms
   
 * The ratio of CPU time to REAL TIME tells you how many cores were effectively used in the computation. 
   * Absolute Ratio = 1.67
