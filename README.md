@@ -35,6 +35,11 @@
       5. Enter the number of zeroes desired.
       6. 4
       7. To stop the program, press <pre>Ctrl + C</pre>
+      
+      Refer the ScreenShot below: 
+      <img width="793" alt="Screenshot 2022-09-24 at 17 29 24" src="https://user-images.githubusercontent.com/54627841/192119396-74ad55fc-1eaa-457b-9698-55b2e734a7cc.png">
+
+      
      
 2. **Distributed Implementation**: 
    1. This implementation performs bitcoin mining by creating actors and distributing range of strings to get the corresponding SHA. 
