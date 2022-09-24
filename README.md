@@ -138,11 +138,11 @@
   <img width="981" alt="Screenshot 2022-09-24 at 18 49 35" src="https://user-images.githubusercontent.com/54627841/192121259-ea1afc4c-ccfc-4f5f-b3b9-e17cba052f23.png">
   
 * The ratio of CPU time to REAL TIME tells you how many cores were effectively used in the computation. 
-  * CPU time = 1ms
-  * Real time  = 4ms
-  * Absolute Ratio = 1/4 = 0.25
+  * CPU time [Multicore Actor Model]= ~1ms = 1ms
+  * Real time [Single-Core Serialized Model] = 4ms
+  * Absolute Ratio = CPU Time / Real Time = 1/4 = 0.25
 
 * The coin with the most 0s you managed to find is 7.
 ![image](https://user-images.githubusercontent.com/41022671/192121563-6fb48de5-e805-44f9-9a5a-fb898834870d.png)
 
-* We were able to run the program on 2 machines. One is a server and other is a client.
+* The Multicore distributed asynchronous model was executed on 2 machines, where one machine acted as a server, while the other acted as a client.
