@@ -78,7 +78,15 @@
   
 ### Conclusions and Results
 
-1. Size of the work unit that you determined results in the best performance for your implementation and an explanation of how you determined it. The size of the work unit refers to the number of sub-problems that a worker gets in a single request from the boss.
+1. Size of Work Unit : 
+   1. The Size of work unit was **1000000000** strings that each actors compute.
+   2. When a client is free, it requests server for work. Server assigns a block of 1000000000 strings to the client.
+   3. We determined the size of work unit on basis of following reasons:
+      1. The Activity Monitor below that **7 Threads** were used during the Actor Model Implementation:
+         <img width="1218" alt="Screenshot 2022-09-24 at 19 50 55" src="https://user-images.githubusercontent.com/54627841/192122628-df0a982c-693c-436f-95cb-fb7b11c9861e.png">
+      2. We ran the program on 2 machines. One Macbook Air, M1 Processor with 8 core CPU and One Lenovo Legion with intel i7 processor with 8 cores. Checking the Activity monitor of both the machines, on various work unit sizes, helped us move to a decision.
+      3. Running more than 7 threads on 8 core machines, each thread had 142857142 strings to compute.
+      4. Running the implementations as mentioned above, we got a clear idea of the load on single core and the affect of adding actors and running them parallelly.
 
 2. The result of running your program for input 4
   <pre>> server:main(4).
@@ -138,9 +146,6 @@ Please refer to the following screenshots:
    1. CPU time [Single-Core Serialized Model]=  4ms
    2. Real time [Multicore Actor Model]= = ~1ms = 1ms
    3. Absolute Ratio = CPU Time / Real Time = 4/1 = 4
-   4. The Activity Monitor below that **7 Threads** were used during the Actor Model Implementation: 
-     <img width="1218" alt="Screenshot 2022-09-24 at 19 50 55" src="https://user-images.githubusercontent.com/54627841/192122628-df0a982c-693c-436f-95cb-fb7b11c9861e.png">
-
 
 5. The coin with the most 0s you managed to find is **7**.
 ![image](https://user-images.githubusercontent.com/41022671/192121563-6fb48de5-e805-44f9-9a5a-fb898834870d.png)
