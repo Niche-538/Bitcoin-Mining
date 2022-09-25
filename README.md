@@ -25,7 +25,7 @@
   3. Client-Server-Actor-Model
   
 1. **Serialized Computation**: 
-   1. This implementation performs the bitcoin mining serially without any parallelism. 
+   1. This implementation performs the bitcoin mining serially without any parallelism. The machine mine bitcoin on a specified range using single core.
    2. This directory has only one file **mining.erl**
    3. To run this code use the following commands:
       1. cd Serialized Computation
@@ -42,7 +42,7 @@
       
      
 2. **Distributed Implementation** [static number of actors]: 
-   1. This implementation performs bitcoin mining by mentioning a static number of actors and distributing range of strings to get the corresponding SHA.
+   1. This implementation performs bitcoin mining by mentioning a static number of actors and distributing range of strings to get the corresponding SHA. The server is spawned, and it creates 5 actors statically. These actors mine the bitcoin for giver string on a pre specified range.
    2. This directory has 2 files **client.erl** and **server.erl**
    3. To run this code use the following commands:
       1. cd Distributed Implementation
@@ -135,9 +135,9 @@ Please refer to the following screenshots:
      <img width="981" alt="Screenshot 2022-09-24 at 18 49 35" src="https://user-images.githubusercontent.com/54627841/192121259-ea1afc4c-ccfc-4f5f-b3b9-e17cba052f23.png">
   
 4. The ratio of CPU time to REAL TIME tells you how many cores were effectively used in the computation. 
-   1. CPU time [Multicore Actor Model]= ~1ms = 1ms
-   2. Real time [Single-Core Serialized Model] = 4ms
-   3. Absolute Ratio = CPU Time / Real Time = 1/4 = 0.25
+   1. CPU time [Single-Core Serialized Model]=  4ms
+   2. Real time [Multicore Actor Model]= = ~1ms = 1ms
+   3. Absolute Ratio = CPU Time / Real Time = 4/1 = 4
    4. The Activity Monitor below that **7 Threads** were used during the Actor Model Implementation: 
      <img width="1218" alt="Screenshot 2022-09-24 at 19 50 55" src="https://user-images.githubusercontent.com/54627841/192122628-df0a982c-693c-436f-95cb-fb7b11c9861e.png">
 
