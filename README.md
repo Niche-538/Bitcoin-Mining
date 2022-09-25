@@ -78,10 +78,10 @@
   
 ### Conclusions and Results
 
-* Size of the work unit that you determined results in the best performance for your implementation and an explanation of how you determined it. The size of the work unit refers to the number of sub-problems that a worker gets in a single request from the boss.
+1. Size of the work unit that you determined results in the best performance for your implementation and an explanation of how you determined it. The size of the work unit refers to the number of sub-problems that a worker gets in a single request from the boss.
 
-* The result of running your program for input 4
-  <pre>3> server:main(4).
+2. The result of running your program for input 4
+  <pre>> server:main(4).
     ok
     Actor ID: <0.95.0> Output: "a.patil:2007383"  "0000a12895ccd9feefb8639c5b4e834380395f907c9f3d12927ee4c538b02f54"
     Actor ID: <0.98.0> Output: "a.patil:8011357"  "000004e29805e12006c1f82c290101ad17ff37347aa2b700efc08191d194a9da"
@@ -127,26 +127,22 @@
     Actor ID: <0.94.0> Output: "a.patil:503689"  "0000ea14f22d85e4a9e5039c41d8622ef17a168d2f3032bf1ea6ff5f77142fe4"
     Actor ID: <0.96.0> Output: "a.patil:4546256"  "0000d5a90a4743ad61cf402f6fdbc960e4039cc222f1c21be6f003ff050acc6b"</pre>
 
-* The running time for the above is reported by time for the above and report the time. 
-  * We ran the hash miner for 5 leading zeroes and recorded the time for serialized and actor model implementation.
-  Please refer to the following screenshots:
-   * Time for Serial Implementation : 4ms
-   <img width="712" alt="Screenshot 2022-09-24 at 18 42 11" src="https://user-images.githubusercontent.com/54627841/192121254-38633282-576a-4eff-847b-e5470f462b3b.png">
-   
-
-  * Time for Actor Model Implentation for 350 actors working asynchronously: ~1ms
-  <img width="981" alt="Screenshot 2022-09-24 at 18 49 35" src="https://user-images.githubusercontent.com/54627841/192121259-ea1afc4c-ccfc-4f5f-b3b9-e17cba052f23.png">
+3. We ran the hash miner for 5 leading zeroes and recorded the time for serialized and actor model implementation.
+Please refer to the following screenshots:
+   1. Time for Serial Implementation : **4ms**
+      <img width="712" alt="Screenshot 2022-09-24 at 18 42 11" src="https://user-images.githubusercontent.com/54627841/192121254-38633282-576a-4eff-847b-e5470f462b3b.png">
+   2. Time for Actor Model Implementation for 350 actors working asynchronously: ~**1ms**
+     <img width="981" alt="Screenshot 2022-09-24 at 18 49 35" src="https://user-images.githubusercontent.com/54627841/192121259-ea1afc4c-ccfc-4f5f-b3b9-e17cba052f23.png">
   
-* The ratio of CPU time to REAL TIME tells you how many cores were effectively used in the computation. 
-  * CPU time [Multicore Actor Model]= ~1ms = 1ms
-  * Real time [Single-Core Serialized Model] = 4ms
-  * Absolute Ratio = CPU Time / Real Time = 1/4 = 0.25
-  
-  * The Activity Monitor below that 7 Threads were used during the Actor Model Implementation: 
-  <img width="1218" alt="Screenshot 2022-09-24 at 19 50 55" src="https://user-images.githubusercontent.com/54627841/192122628-df0a982c-693c-436f-95cb-fb7b11c9861e.png">
+4. The ratio of CPU time to REAL TIME tells you how many cores were effectively used in the computation. 
+   1. CPU time [Multicore Actor Model]= ~1ms = 1ms
+   2. Real time [Single-Core Serialized Model] = 4ms
+   3. Absolute Ratio = CPU Time / Real Time = 1/4 = 0.25
+   4. The Activity Monitor below that **7 Threads** were used during the Actor Model Implementation: 
+     <img width="1218" alt="Screenshot 2022-09-24 at 19 50 55" src="https://user-images.githubusercontent.com/54627841/192122628-df0a982c-693c-436f-95cb-fb7b11c9861e.png">
 
 
-* The coin with the most 0s you managed to find is 7.
+5. The coin with the most 0s you managed to find is **7**.
 ![image](https://user-images.githubusercontent.com/41022671/192121563-6fb48de5-e805-44f9-9a5a-fb898834870d.png)
 
-* The Multicore distributed asynchronous model was executed on 2 machines, where one machine acted as a server, while the other acted as a client.
+6. The Multicore distributed asynchronous model was executed on **2 machines**, where one machine acted as a server, while the other acted as a client.
